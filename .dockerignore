@@ -1,0 +1,14 @@
+# Files that should not be sent to the Docker build context.
+.git
+.github
+.claude
+.mcp.json
+.env*
+!.env.example
+node_modules
+vendor
+tests
+public/build
+public/hot
+database/*.sqlite
+storage/logs/*.log
