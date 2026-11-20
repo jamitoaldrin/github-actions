@@ -21,6 +21,17 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## Docker
+
+Build and run the production image with Docker. Set `APP_KEY` in your environment to a generated Laravel application key before starting the container:
+
+```sh
+docker build -t action-repo .
+docker run --rm -p 10000:10000 -e APP_KEY -e APP_ENV=production -e APP_DEBUG=false action-repo
+```
+
+The image builds frontend assets, serves the app with NGINX and PHP-FPM, and runs migrations at startup. SQLite is the default database and is stored inside the container; configure an external database for persistent production data.
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
