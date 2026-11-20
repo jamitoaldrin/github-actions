@@ -12,8 +12,8 @@ RUN npm run build
 FROM php:8.4-fpm AS app
 
 RUN apt-get update \
- && apt-get install -y --no-install-recommends nginx unzip libzip-dev libpq-dev libsqlite3-dev \
- && docker-php-ext-install bcmath opcache pdo_mysql pdo_pgsql pdo_sqlite sqlite3 zip \
+ && apt-get install -y --no-install-recommends nginx unzip libzip-dev libpq-dev \
+ && docker-php-ext-install bcmath pdo_mysql pdo_pgsql zip \
  && rm -rf /var/lib/apt/lists/* \
  && ln -sf /dev/stdout /var/log/nginx/access.log \
  && ln -sf /dev/stderr /var/log/nginx/error.log
